@@ -401,11 +401,11 @@ var thWs = ["thW_01", "thW_02", "thW_03", "thW_04", "thW_05", "thW_06", "thW_07"
 var ohMs = []
 var thMs = []
 var shis = ["shi_01", "shi_02", "shi_03"]
-var weaCh = [" • 1 one-handed melee weapon.", 
-       " • 2 different one-handed melee weapons.", 
-       " • 2 of the same one-handed melee weapon (+1 DP).", 
-       " • 1 one-handed melee weapon and a shield.", 
-       " • 1 two-handed melee weapon."]
+var weaCh = [" Â• 1 one-handed melee weapon.", 
+       " Â• 2 different one-handed melee weapons.", 
+       " Â• 2 of the same one-handed melee weapon (+1 DP).", 
+       " Â• 1 one-handed melee weapon and a shield.", 
+       " Â• 1 two-handed melee weapon."]
 var weaChV = 99
 
 // reset checkboxes to uncheck & reset weapon names ------------------------------
@@ -660,7 +660,7 @@ function clickWea(checkId) {
     if (checkBox.checked == true) { thM += 1; } else { thM -= 1; };
   } else if (checkId.substring(0,3) == "shi") {
     bStar = false;
-    actStat = document.getElementById("save").innerHTML.search("http");      // check if blackstar
+    actStat = document.getElementById("save").innerHTML.search("blackstar");      // check if blackstar
     if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
     actWeaName = "Save";
     addTimes = 1;
@@ -691,7 +691,7 @@ function clickWea(checkId) {
   var i = 0
   
   switch (weaponCode) {
-    case "0-100000":  // • 1 one-handed melee weapon.
+    case "0-100000":  // Â• 1 one-handed melee weapon.
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = false;};
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = false;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -700,9 +700,9 @@ function clickWea(checkId) {
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = false;};
       if (checkId == "oh2_01") { DPs = parseInt(DPs) - 1 };
       document.getElementById("r1_oh2_01c8").innerHTML = parseInt(DPs) + 1;
-      text = weaChTxt(0);  // text = " • 1 one-handed melee weapons.";   
+      text = weaChTxt(0);  // text = " Â• 1 one-handed melee weapons.";   
       break;
-    case "0-200000":  // • 2 different one-handed melee weapons.
+    case "0-200000":  // Â• 2 different one-handed melee weapons.
       weaSwitch(ohWs)  // ohWs
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -710,9 +710,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = true;};
       resetSecondOneHW();
-      text = weaChTxt(1);  // text = " • 2 different one-handed melee weapons.";     
+      text = weaChTxt(1);  // text = " Â• 2 different one-handed melee weapons.";     
       break;
-    case "0-200100":  // • 2 different one-handed melee weapons & a ranged weapon.
+    case "0-200100":  // Â• 2 different one-handed melee weapons & a ranged weapon.
       weaSwitch(ohWs)  // ohWs
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -720,9 +720,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = true;};
       //resetSecondOneHW();
-      text = weaChTxt(1);  // text = " • 2 different one-handed melee weapons.";
+      text = weaChTxt(1);  // text = " Â• 2 different one-handed melee weapons.";
       break;
-    case "0-110000":  // • 2 of the same one-handed melee weapon.
+    case "0-110000":  // Â• 2 of the same one-handed melee weapon.
       weaSwitch(ohWs)  // ohWs
       weaSwitch(oh2s)  // ohWs
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -735,9 +735,9 @@ function clickWea(checkId) {
       rows = document.getElementById("meleeWeaTablePre").getElementsByTagName("tr");
       dblAtt = rows[1].cells[2].innerHTML;
       rows[1].cells[2].innerHTML = parseInt(dblAtt) * 2;
-      text = weaChTxt(2);  // text = " • 2 of the same one-handed melee weapon.";     
+      text = weaChTxt(2);  // text = " Â• 2 of the same one-handed melee weapon.";     
       break;
-    case "0-110100":  // • 2 of the same one-handed melee weapon & a ranged weapon.
+    case "0-110100":  // Â• 2 of the same one-handed melee weapon & a ranged weapon.
       weaSwitch(ohWs)  // ohWs
       weaSwitch(oh2s)  // ohWs
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -745,9 +745,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = true;};
       //resetSecondOneHW();
-      text = weaChTxt(2);  // text = " • 2 of the same one-handed melee weapon & a ranged weapon.";
+      text = weaChTxt(2);  // text = " Â• 2 of the same one-handed melee weapon & a ranged weapon.";
       break;
-    case "0-010100":  // • 2 of the same one-handed melee weapon & a ranged weapon.
+    case "0-010100":  // Â• 2 of the same one-handed melee weapon & a ranged weapon.
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = false;};
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = false;};
@@ -755,9 +755,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = false;};
       resetSecondOneHW();
-      text = weaChTxt(99);  // text = " • 2 of the same one-handed melee weapon & a ranged weapon.";
+      text = weaChTxt(99);  // text = " Â• 2 of the same one-handed melee weapon & a ranged weapon.";
       break;
-    case "0-100001":  // • 1 one-handed melee weapon and a shield.
+    case "0-100001":  // Â• 1 one-handed melee weapon and a shield.
       weaSwitch(ohWs)  // ohWs
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -765,9 +765,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       weaSwitch(shis)  // shis
       resetSecondOneHW();
-      text = weaChTxt(3);  // text = " • 1 one-handed melee weapon and a shield.";
+      text = weaChTxt(3);  // text = " Â• 1 one-handed melee weapon and a shield.";
       break;
-    case "0-100101":  // • 1 one-handed melee weapon and a shield & a ranged weapon.
+    case "0-100101":  // Â• 1 one-handed melee weapon and a shield & a ranged weapon.
       weaSwitch(ohWs)  // ohWs
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -775,9 +775,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       weaSwitch(shis)  // shis
       //resetSecondOneHW();
-      text = weaChTxt(3);  // text = " • 1 one-handed melee weapon and a shield & a ranged weapon.";
+      text = weaChTxt(3);  // text = " Â• 1 one-handed melee weapon and a shield & a ranged weapon.";
       break;
-    case "0-001000":  // • 1 two-handed melee weapon.
+    case "0-001000":  // Â• 1 two-handed melee weapon.
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = true;};
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       weaSwitch(thWs)  // thWs
@@ -785,9 +785,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = true;};
       resetSecondOneHW();
-      text = weaChTxt(4);  //text = " • 1 two-handed melee weapon.";
+      text = weaChTxt(4);  //text = " Â• 1 two-handed melee weapon.";
       break;
-    case "0-001100":  // • 1 two-handed melee weapon & a ranged weapon.
+    case "0-001100":  // Â• 1 two-handed melee weapon & a ranged weapon.
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = true;};
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       weaSwitch(thWs)  // thWs
@@ -795,9 +795,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = true;};
       //resetSecondOneHW();
-      text = weaChTxt(4);  //text = " • 1 two-handed melee weapon. & a ranged weapon.";
+      text = weaChTxt(4);  //text = " Â• 1 two-handed melee weapon. & a ranged weapon.";
       break;
-    case "0-100100":  // • 1 Handbow and 1 one-handed melee weapon.
+    case "0-100100":  // Â• 1 Handbow and 1 one-handed melee weapon.
       weaSwitch(ohWs)  // ohWs
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = false;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -805,9 +805,9 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = false;};
       //resetSecondOneHW();
-      text = weaChTxt(0);  // text = " • 1 missile weapon and 1 one-handed melee weapon.";
+      text = weaChTxt(0);  // text = " Â• 1 missile weapon and 1 one-handed melee weapon.";
       break;
-    case "0-100010":  // • 1 Bow and 1 one-handed melee weapon.
+    case "0-100010":  // Â• 1 Bow and 1 one-handed melee weapon.
       weaSwitch(ohWs)  // ohWs
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
       for (i = 0; i < thWs.length; i++) {document.getElementById(thWs[i]).disabled = true;};
@@ -815,7 +815,7 @@ function clickWea(checkId) {
       weaSwitch(thMs)  // thMs      
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = true;};
       resetSecondOneHW();
-      text = weaChTxt(99);  // text = " • 1 missile weapon and 1 one-handed melee weapon.";
+      text = weaChTxt(99);  // text = " Â• 1 missile weapon and 1 one-handed melee weapon.";
       break;
     case "0-000001":  // only a shield.
       for (i = 0; i < oh2s.length; i++) {document.getElementById(oh2s[i]).disabled = true;};
@@ -825,7 +825,7 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       weaSwitch(shis)  // shis
       resetSecondOneHW();
-      text = weaChTxt(99);  // text = " • only a shield.";
+      text = weaChTxt(99);  // text = " Â• only a shield.";
       break;
     case "0-000101":  // only a shield & a ranged weapon.
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = false;};
@@ -836,7 +836,7 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       weaSwitch(shis)  // shis
       resetSecondOneHW();
-      text = weaChTxt(99);  // text = " • only a shield & a ranged weapon.";
+      text = weaChTxt(99);  // text = " Â• only a shield & a ranged weapon.";
       break;
     case "0-000100":  // only a one-handed missile weapon.
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = false;};
@@ -846,7 +846,7 @@ function clickWea(checkId) {
       for (i = 0; i < thMs.length; i++) {document.getElementById(thMs[i]).disabled = true;};
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = false;};
       //resetSecondOneHW();
-      text = weaChTxt(99);  // text = " • only a missile weapon.";
+      text = weaChTxt(99);  // text = " Â• only a missile weapon.";
       break;
     case "0-000010":  // only a two-handed missile weapon.
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = false;};
@@ -856,7 +856,7 @@ function clickWea(checkId) {
       weaSwitch(thMs)  // thMs      
       for (i = 0; i < shis.length; i++) {document.getElementById(shis[i]).disabled = true;};
       resetSecondOneHW();
-      text = weaChTxt(99);  // text = " • only a missile weapon.";
+      text = weaChTxt(99);  // text = " Â• only a missile weapon.";
       break;
     default:
       for (i = 0; i < ohWs.length; i++) {document.getElementById(ohWs[i]).disabled = false;};
@@ -1119,12 +1119,12 @@ function beastAddToWS(theNameExt, wsPartExt, theTabExt, checkIdExt) {
   if (document.getElementById("gaB_01").checked == true) { 
     wounds = 8;
     var blackstar = document.createElement("IMG");
-    blackstar.setAttribute("src", "https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png");
+    blackstar.setAttribute("src", "AoS_WS_blackstar.png");
     blackstar.setAttribute("alt", "WarhammerAoS");
     blackstar.setAttribute("style", "display:block; margin: auto auto -5px;");
     //document.getElementById("move").innerHTML = ""
     //document.getElementById("move").appendChild(blackstar);
-    //<img src=https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png alt="WarhammerAoS" style="display:block; margin: auto auto -5px;";>
+    //<img src=AoS_WS_blackstar.png alt="WarhammerAoS" style="display:block; margin: auto auto -5px;";>
     //document.getElementById("rewriteBeasts").innerHTML = "";
     var clone = Gargantuan_Beast.cloneNode(true);
     clone.id = Gargantuan_Beast.id + "1";
@@ -1206,13 +1206,13 @@ function addBeastEnh(checkId) {
       statCol = 2;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02att.search("http")       // check if blackstar
+        actStat = wea02att.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02att);
         newStat = parseInt(wea02att) + parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01att.search("http")       // check if blackstar
+        actStat = wea01att.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01att);
         newStat = parseInt(wea01att) + parseInt(addTimes); };
@@ -1230,13 +1230,13 @@ function addBeastEnh(checkId) {
       statCol = 3;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02hit.search("http")       // check if blackstar
+        actStat = wea02hit.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02hit);
         newStat = parseInt(wea02hit) - parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01hit.search("http")       // check if blackstar
+        actStat = wea01hit.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01hit);
         newStat = parseInt(wea01hit) - parseInt(addTimes); };
@@ -1258,13 +1258,13 @@ function addBeastEnh(checkId) {
       statCol = 4;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02wnd.search("http")       // check if blackstar
+        actStat = wea02wnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02wnd);
         newStat = parseInt(wea02wnd) - parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01wnd.search("http")       // check if blackstar
+        actStat = wea01wnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01wnd);
         newStat = parseInt(wea01wnd) - parseInt(addTimes); };
@@ -1286,13 +1286,13 @@ function addBeastEnh(checkId) {
       statCol = 5;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02rnd.search("http")       // check if blackstar
+        actStat = wea02rnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02rnd);
         newStat = parseInt(wea02rnd) + parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01rnd.search("http")       // check if blackstar
+        actStat = wea01rnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01rnd);
         newStat = parseInt(wea01rnd) + parseInt(addTimes); };
@@ -1535,7 +1535,7 @@ function addCharEnh(checkId) {
       else { addValue = parseInt(move.innerHTML) - parseInt(addTimes); };
       move.innerHTML = addValue;
       
-      actStat = document.getElementById("move").innerHTML.search("http")       // check if blackstar
+      actStat = document.getElementById("move").innerHTML.search("blackstar");      // check if blackstar
       if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
       actWeaName = "Move"
       if (bStar == true && checkBox.checked == true) { changeDmgTable(actWeaName, addTimes, "add"); } 
@@ -1548,7 +1548,7 @@ function addCharEnh(checkId) {
       else { addValue = parseInt(woun.innerHTML) - parseInt(addTimes); };
       woun.innerHTML = addValue;
       
-      actStat = document.getElementById("woun").innerHTML.search("http")       // check if blackstar
+      actStat = document.getElementById("woun").innerHTML.search("blackstar");      // check if blackstar
       if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
       actWeaName = "Wounds"
       if (bStar == true && checkBox.checked == true) { changeDmgTable(actWeaName, addTimes, "add"); } 
@@ -1561,7 +1561,7 @@ function addCharEnh(checkId) {
       else { addValue = parseInt(brav.innerHTML) - parseInt(addTimes); };
       brav.innerHTML = addValue;
       
-      actStat = document.getElementById("brav").innerHTML.search("http")       // check if blackstar
+      actStat = document.getElementById("brav").innerHTML.search("blackstar");      // check if blackstar
       if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
       actWeaName = "Bravery"
       if (bStar == true && checkBox.checked == true) { changeDmgTable(actWeaName, addTimes, "add"); } 
@@ -1583,7 +1583,7 @@ function addCharEnh(checkId) {
       addSave = addTimes
       numTextN = numTextN - addSave
       
-      actStat = document.getElementById("save").innerHTML.search("http")       // check if blackstar
+      actStat = document.getElementById("save").innerHTML.search("blackstar");      // check if blackstar
       if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
       actWeaName = "Save"
       if (bStar == true && checkBox.checked == true) { changeDmgTable(actWeaName, addTimes, "add"); } 
@@ -1616,13 +1616,13 @@ function addCharEnh(checkId) {
       statCol = 2;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02att.search("http")       // check if blackstar
+        actStat = wea02att.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02att);
         newStat = parseInt(wea02att) + parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01att.search("http")       // check if blackstar
+        actStat = wea01att.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01att);
         newStat = parseInt(wea01att) + parseInt(addTimes); };
@@ -1640,13 +1640,13 @@ function addCharEnh(checkId) {
       statCol = 3;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02hit.search("http")       // check if blackstar
+        actStat = wea02hit.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02hit);
         newStat = parseInt(wea02hit) - parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01hit.search("http")       // check if blackstar
+        actStat = wea01hit.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01hit);
         newStat = parseInt(wea01hit) - parseInt(addTimes); };
@@ -1668,13 +1668,13 @@ function addCharEnh(checkId) {
       statCol = 4;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02wnd.search("http")       // check if blackstar
+        actStat = wea02wnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02wnd);
         newStat = parseInt(wea02wnd) - parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01wnd.search("http")       // check if blackstar
+        actStat = wea01wnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01wnd);
         newStat = parseInt(wea01wnd) - parseInt(addTimes); };
@@ -1696,13 +1696,13 @@ function addCharEnh(checkId) {
       statCol = 5;
       if (checkBox.id.endsWith("b")) { 
         actWeaName = wea02nam;
-        actStat = wea02rnd.search("http")       // check if blackstar
+        actStat = wea02rnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02rnd);
         newStat = parseInt(wea02rnd) + parseInt(addTimes); } 
       else { 
         actWeaName = wea01nam;
-        actStat = wea01rnd.search("http")       // check if blackstar
+        actStat = wea01rnd.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01rnd);
         newStat = parseInt(wea01rnd) + parseInt(addTimes); };
@@ -1730,7 +1730,7 @@ function addCharEnh(checkId) {
           break; 
       };
         actWeaName = wea02nam;
-        actStat = wea02dmg.search("http")       // check if blackstar
+        actStat = wea02dmg.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea02dmg);
         newStat = parseInt(wea02dmg) + parseInt(addTimes); } 
@@ -1741,7 +1741,7 @@ function addCharEnh(checkId) {
           break; 
       };
         actWeaName = wea01nam;
-        actStat = wea01dmg.search("http")       // check if blackstar
+        actStat = wea01dmg.search("blackstar");      // check if blackstar
         if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
         oldStat = parseInt(wea01dmg);
         newStat = parseInt(wea01dmg) + parseInt(addTimes); };
@@ -1829,19 +1829,19 @@ function spiritAddToWS(theNameExt, wsPartExt, theTabExt, checkIdExt) {
 
 // add DPs and attacks to spirit host ------------------------------
 function setSpiritHost(checkId) {
-  if (checkId != null) { spiritH = "No°" + document.getElementById(checkId).value }
-  else { spiritH = "No°1" };
+  if (checkId != null) { spiritH = "NoÂ°" + document.getElementById(checkId).value }
+  else { spiritH = "NoÂ°1" };
   
   switch (spiritH) {
-    case "No°1":
+    case "NoÂ°1":
       document.getElementById("r1_spH_02c3").innerHTML = "2";
       document.getElementById("r1_spH_01c8").innerHTML = "4";
       break;
-    case "No°2":
+    case "NoÂ°2":
       document.getElementById("r1_spH_02c3").innerHTML = "4";
       document.getElementById("r1_spH_01c8").innerHTML = "6";
       break;
-    case "No°3":
+    case "NoÂ°3":
       document.getElementById("r1_spH_02c3").innerHTML = "6";
       document.getElementById("r1_spH_01c8").innerHTML = "8";
       break;      
@@ -1918,7 +1918,7 @@ function changeWeaStatPrev(actWeaName, usedStat, statCol) {
 
 // check for Aura ability ------------------------------
 function checkAura() {
-  var actStat = document.getElementById("save").innerHTML.search("http");   // check if blackstar
+  var actStat = document.getElementById("save").innerHTML.search("blackstar");      // check if blackstar
   var bStar = false;
   var cellV = 7;
   if (actStat != -1) { bStar = true; };   // if blackstar then bStar=true and get dmgTable
@@ -2045,7 +2045,9 @@ function resetRestrictionsStep6() {
 // --- scripts on step 7 ------------------------------
 // change size of warscroll
 function changeSize() {
-  document.getElementById("warscrollcard").style.display = "block";
+  document.getElementById("showhideCard").checked = true;
+  //document.getElementById("warscrollcard").style.display = "block";
+  clickCard();
   
   var format = document.getElementById("cardFormats");
   var fIndex = format.selectedIndex;
@@ -2058,35 +2060,32 @@ function changeSize() {
 
   WS = document.getElementById("yourWarscroll");
   if (V == "autosize-card") { WS.setAttribute("style", "width: " + W + "mm; height: ''"); } 
-  else { WS.setAttribute("style", "width: " + W + "mm; height: " + H + "mm;"); };   
-  document.getElementById("showhideCard").checked = true;
+  else { WS.setAttribute("style", "width: " + W + "mm; height: " + H + "mm;"); };
 };
 
 // print warscroll as png ------------------------------
-$(document).ready(function () {
-  var element = $("#yourWarscroll"); // global variable
-  var getCanvas; //global variable
-  html2canvas(element, {
-    onrendered: function (canvas) { getCanvas = canvas; }
-  });
- 
-  $("#download_your_warscroll").on('click', function () {
-    var imgageData = getCanvas.toDataURL("image/png");
-    //Now browser starts downloading it instead of just showing it
-    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-    $("#download_your_warscroll").attr("download", "your_AoS_hero.png").attr("href", newData);
-  });
-});
-
+//$(document).ready(function () {
+//  var element = $("#yourWarscroll"); // global variable
+//  var getCanvas; //global variable
+//  html2canvas(element, {
+//    onrendered: function (canvas) { getCanvas = canvas; }
+//  });
+// 
+//  $("#download_your_warscroll").on('click', function () {
+//    var imgageData = getCanvas.toDataURL("image/png");
+//    //Now browser starts downloading it instead of just showing it
+//    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+//    $("#download_your_warscroll").attr("download", "your_AoS_hero.png").attr("href", newData);
+//  });
+//});
 
 function downloadWS() {
   var container = document.getElementById("warscrollcard");
-  html2canvas(container, { allowTaint: true }).then(function (canvas) {
-
+  html2canvas(container).then(function (canvas) {
     var link = document.createElement("a");
     document.body.appendChild(link);
-    link.download = "html_image.jpg";
-    link.href = canvas.toDataURL();
+    link.download = "html_image.png";
+    link.href = canvas.toDataURL("image/png");
     link.target = '_blank';
     link.click();
   });
@@ -2405,8 +2404,8 @@ function resetDmgTable() {
 // show/hide Warscroll ------------------------------
 function clickCard() {
   if (document.getElementById("showhideCard").checked == true) { 
-    document.getElementById("yourWarscroll").style.display = "block"
-  } else { document.getElementById("yourWarscroll").style.display = "none" }
+    document.getElementById("warscrollcard").style.display = "block"
+  } else { document.getElementById("warscrollcard").style.display = "none" }
 };
 
 //  |||||||   ||||||||  ||    ||   ||||||   ||    ||  ||||||||
@@ -2723,19 +2722,19 @@ function displayAllSteps() {
   var fullText = "";
 
   var blackstarM = document.createElement("IMG");
-      blackstarM.setAttribute("src", "https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png");
+      blackstarM.setAttribute("src", "AoS_WS_blackstar.png");
       blackstarM.setAttribute("alt", "WarhammerAoS");
       blackstarM.setAttribute("style", "display:block; margin: auto auto -5px;");
   var blackstarS = document.createElement("IMG");
-      blackstarS.setAttribute("src", "https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png");
+      blackstarS.setAttribute("src", "AoS_WS_blackstar.png");
       blackstarS.setAttribute("alt", "WarhammerAoS");
       blackstarS.setAttribute("style", "display:block; margin: auto auto -5px;");
   var blackstarB = document.createElement("IMG");
-      blackstarB.setAttribute("src", "https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png");
+      blackstarB.setAttribute("src", "AoS_WS_blackstar.png");
       blackstarB.setAttribute("alt", "WarhammerAoS");
       blackstarB.setAttribute("style", "display:block; margin: auto auto -5px;");
   var blackstarW = document.createElement("IMG");
-      blackstarW.setAttribute("src", "https://i.ibb.co/gPzxHNR/Ao-S-WS-blackstar.png");
+      blackstarW.setAttribute("src", "AoS_WS_blackstar.png");
       blackstarW.setAttribute("alt", "WarhammerAoS");
       blackstarW.setAttribute("style", "display:block; margin: auto auto -5px;");
       
@@ -2753,7 +2752,7 @@ function displayAllSteps() {
       var blackRow = false;
       for (j = 2; j < actTab + 1; j++) {
         blackCheck = rows[i].cells[j].innerHTML;
-        blackCheck = blackCheck.search("http");  // check if blackstar
+        blackCheck = blackCheck.search("blackstar");      // check if blackstar
         if (blackCheck != -1) { blackRow = true; };
         numTextP = numTextP + parseInt(rows[i].cells[j].innerHTML);
         if (i == 2) {
@@ -2857,8 +2856,9 @@ function showTab(n) {  // This function will display the specified tab of the fo
     document.getElementById("nextBtn").style.width = "";
     document.getElementById("resetBtn").innerHTML = "Reset";
     document.getElementById("nextBtn").innerHTML = "Next";
-    document.getElementById("warscrollcard").style.display = "block";
     document.getElementById("warscrollshow").style.display = "block";
+    //document.getElementById("warscrollcard").style.display = "block";
+    clickCard();
     document.getElementById("roleDP").style.display = "block";
   };
   if (n == (x.length - 1)) {
@@ -2928,6 +2928,10 @@ function nextPrev(n) {    // This function will figure out which tab to display
         resetStepWeaponStats("orgWeaponTable");
       };
       resetRestrictionsStep6();
+      break;
+    case 6:   // step 7
+      document.getElementById("showhideCard").checked = true;
+      clickCard();
       break;
     default:  // default
       ;
